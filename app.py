@@ -15,7 +15,15 @@ import torch.nn as nn
 from fastapi import FastAPI, File, UploadFile
 from PIL import Image
 import torchvision.transforms as transforms
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["https://your-vercel-app.vercel.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # -------------------------------
 # 1. Define Model (same as training)
 # -------------------------------
