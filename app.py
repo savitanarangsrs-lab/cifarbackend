@@ -16,7 +16,7 @@ from fastapi import FastAPI, File, UploadFile
 from PIL import Image
 import torchvision.transforms as transforms
 from fastapi.middleware.cors import CORSMiddleware
-
+app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # or ["https://your-vercel-app.vercel.app"]
@@ -94,7 +94,7 @@ def preprocess_image(image: Image.Image):
 # -------------------------------
 # 4. FastAPI App
 # -------------------------------
-app = FastAPI()
+
 
 @app.get("/")
 def home():
